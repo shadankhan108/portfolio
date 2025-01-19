@@ -1,0 +1,88 @@
+[
+  
+    {
+      "id": 1,
+      "title": "Iris Flower Classification",
+      "description": "This project involves building a machine learning model to classify iris flowers into three species: Setosa, Versicolor, and Virginica. Using the popular Iris dataset, the model is trained on features such as sepal length, sepal width, petal length, and petal width. The project demonstrates the use of supervised learning, particularly classification algorithms like Logistic Regression, Decision Trees, and Support Vector Machines. It is a great beginner-friendly project for understanding data preprocessing, visualization, and model evaluation techniques.",
+      "image": "https://cdn.pixabay.com/photo/2020/04/30/23/22/iris-5114911_1280.jpg",
+      "githubLink": "https://github.com/username/iris-classification"
+    },
+    {
+      "id": 2,
+      "title": "House Price Prediction",
+      "description": "This project predicts house prices based on various features such as square footage, location, number of bedrooms, and bathrooms. It involves cleaning and preprocessing a dataset, exploratory data analysis (EDA), and applying regression algorithms like Linear Regression, Random Forest, and XGBoost. The project also explores feature engineering techniques and hyperparameter tuning to improve model performance. It's an excellent example of using machine learning for real-world scenarios.",
+      "image": "https://images.dwell.com/photos-6133431940611203072/6460670652388048896-large/exterior-materials-include-black-anodized-aluminum-windows-stained-western-red-cedar-and-pre-painted-metal-siding-parish-says-these-materials-complement-the-new-modern-volume-of-the-house-while-also-nodding-to-the-existing-character-of-the-neighborhood.jpg",
+      "githubLink": "https://github.com/username/house-price-prediction"
+    },
+    {
+      "id": 3,
+      "title": "Titanic Survival Prediction",
+      "description": "This classic machine learning project predicts whether a Titanic passenger survived or not based on features like age, sex, class, ticket fare, and the number of family members on board. It demonstrates binary classification using algorithms such as Logistic Regression, K-Nearest Neighbors (KNN), and Gradient Boosting. The project also includes handling missing data, encoding categorical variables, and interpreting feature importance.",
+      "image": "https://www.thoughtco.com/thmb/Heru39HLQLHqscAgjCVS4mL3NDI%3D/1500x1027/filters%3Afill%28auto%2C1%29/GettyImages-517357578-5c4a27edc9e77c0001ccf77d.jpg",
+      "githubLink": "https://github.com/username/titanic-survival-prediction"
+    },
+    {
+      "id": 4,
+      "title": "Handwritten Digit Recognition",
+      "description": "This project uses the MNIST dataset to recognize handwritten digits (0-9). It demonstrates the use of neural networks, particularly Convolutional Neural Networks (CNNs), to extract features from images and classify them accurately. The project covers building, training, and testing the model using libraries like TensorFlow or PyTorch, and also explores techniques to optimize performance and reduce errors.",
+      "image": "https://iq.opengenus.org/content/images/2020/06/mnist.png",
+      "githubLink": "https://github.com/username/handwritten-digit-recognition"
+    },
+    {
+      "id": 5,
+      "title": "Spam Email Detection",
+      "description": "In this project, emails are classified as 'spam' or 'not spam' using natural language processing (NLP). It involves tokenization, removing stop words, and creating features using techniques like bag-of-words or TF-IDF. The model is trained using algorithms such as Naive Bayes, Logistic Regression, or Support Vector Machines. This project is ideal for understanding text data preprocessing and binary classification tasks.",
+      "image": "https://static.vecteezy.com/system/resources/previews/000/173/982/original/vector-phishing-by-email-spoofing-internet-concept-illustration.jpg",
+      "githubLink": "https://github.com/username/spam-email-detection"
+    },
+    {
+      "id": 6,
+      "title": "Wine Quality Prediction",
+      "description": "This project predicts the quality of wine based on its chemical properties such as acidity, alcohol content, pH levels, and residual sugar. Using classification models like Random Forest, Decision Trees, and Gradient Boosting, the project demonstrates how machine learning can be used to solve real-world problems. It also includes feature selection and hyperparameter tuning to enhance the model's performance.",
+      "image": "https://secure.img1-fg.wfcdn.com/im/64776853/compr-r85/7582/75822407/cowden-6-piece-750ml-red-wine-glass-set.jpg",
+      "githubLink": "https://github.com/username/wine-quality-prediction"
+    }
+  ,
+  {
+      "id": 7,
+      "title": "Loan Default Prediction",
+      "description": "This project predicts whether a loan applicant will default or repay a loan based on features like income, credit history, loan amount, and employment status. It uses classification models such as Logistic Regression, Random Forest, and Gradient Boosting. The project highlights the importance of handling imbalanced datasets and provides insights into financial risk management.",
+      "image": "https://tse4.mm.bing.net/th?id=OIP.YI5myLEe64QYQL0BqX16ZgHaFc&pid=Api",
+      "githubLink": "https://github.com/username/loan-default-prediction"
+  },
+  {
+      "id": 8,
+      "title": "Movie Recommendation System",
+      "description": "This project builds a recommendation system to suggest movies to users based on their viewing history and preferences. Techniques like collaborative filtering, content-based filtering, and hybrid approaches are explored. The project also involves working with datasets like MovieLens and using libraries such as Surprise or Scikit-learn. It’s a great project for understanding recommendation engines and matrix factorization techniques.",
+      "image": "https://tse3.mm.bing.net/th?id=OIP.c2glivih3S0Gf0-uP0E7PQHaJ5&pid=Api",
+      "githubLink": "https://github.com/username/movie-recommendation-system"
+  },
+  {
+      "id": 9,
+      "title": "Stock Price Prediction",
+      "description": "This project predicts future stock prices using historical data and machine learning techniques. It involves time series analysis, feature engineering, and applying models like ARIMA, LSTM (Long Short-Term Memory), and Random Forest. The project also includes evaluating model performance and understanding financial market trends.",
+      "image": "https://tse1.mm.bing.net/th?id=OIP.sd0ij-YSqWqLDvI4oFfVKwHaF7&pid=Api",
+      "githubLink": "https://github.com/username/stock-price-prediction"
+  },
+  {
+      "id": 10,
+      "title": "Weather Forecasting",
+      "description": "This project predicts weather conditions such as temperature, humidity, and precipitation using historical weather data. It applies regression models like Random Forest, Support Vector Regression, and LSTMs. The project also explores feature selection, model evaluation, and interpreting results in a real-world context.",
+      "image": "https://tse2.mm.bing.net/th?id=OIP.zjugp9W5T0TuRDJ8YdiUwgHaHa&pid=Api",
+      "githubLink": "https://github.com/username/weather-forecasting"
+  },
+  {
+      "id": 11,
+      "title": "Customer Segmentation",
+      "description": "This project uses clustering algorithms like K-Means and DBSCAN to segment customers based on their purchasing behavior. It demonstrates the use of unsupervised learning techniques for marketing strategies, identifying customer groups, and personalizing services. The project also includes visualizing clusters using libraries like Matplotlib and Seaborn.",
+      "image": "https://tse3.mm.bing.net/th?id=OIP.F235y49iewrzLdNlSkJT3AHaGU&pid=Api",
+      "githubLink": "https://github.com/username/customer-segmentation"
+  },
+  {
+      "id": 12,
+      "title": "Object Detection",
+      "description": "This project involves detecting and classifying objects in images or videos using pre-trained deep learning models such as YOLO (You Only Look Once) or SSD (Single Shot Multibox Detector). It covers the use of TensorFlow or PyTorch, transfer learning, and fine-tuning for specific datasets. The project also demonstrates real-world applications in surveillance, autonomous driving, and image analysis.",
+      "image": "https://tse4.mm.bing.net/th?id=OIP.B77RWqjx5JFo9HYg5pSUQQHaHa&pid=Api",
+      "githubLink": "https://github.com/username/object-detection"
+  }
+]
