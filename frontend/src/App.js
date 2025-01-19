@@ -9,11 +9,10 @@ import About from './components/About';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-import { useTheme } from './contexts/ThemeProvider';
+
 
 const App = () => {
   const [background, setBackground] = useState('scatter');
-  const { mode } = useTheme(); // Access theme mode (light/dark)
 
   const toggleBackground = () => {
     const backgrounds = ['scatter', 'matrix', 'nodeGraph'];
