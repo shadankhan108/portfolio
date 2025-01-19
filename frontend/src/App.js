@@ -8,6 +8,7 @@ import Home from './components/Home';
 import About from './components/About';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
+import Footer from './components/Footer';
 import { useTheme } from './contexts/ThemeProvider';
 
 const App = () => {
@@ -38,10 +39,10 @@ const App = () => {
     <Router>
       <div
         style={{
+          display: 'flex',
+          flexDirection: 'column',
+          minHeight: '100vh',
           position: 'relative',
-          width: '100%',
-          height: '100vh',
-          overflow: 'hidden',
         }}
       >
         {/* Dynamic Background */}
@@ -64,7 +65,7 @@ const App = () => {
         {/* Main Content */}
         <div
           style={{
-            position: 'relative',
+            flex: 1, // Ensures this section takes up all available space
             zIndex: 1, // Keep content above the background
             paddingTop: '64px', // Offset for Navbar height
           }}
@@ -76,6 +77,9 @@ const App = () => {
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </div>
+
+        {/* Footer */}
+        <Footer />
       </div>
     </Router>
   );
