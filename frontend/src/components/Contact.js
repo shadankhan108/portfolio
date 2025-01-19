@@ -58,7 +58,7 @@ const Contact = () => {
         <Button
           variant="outlined"
           startIcon={<LinkedIn />}
-          href="https://www.linkedin.com/in/shadan-khan-273b658b/" // Replace with your LinkedIn profile
+          href="https://www.linkedin.com/in/shadan-khan-273b658b/" 
           target="_blank"
           rel="noopener"
           sx={{ textTransform: 'none' }}
