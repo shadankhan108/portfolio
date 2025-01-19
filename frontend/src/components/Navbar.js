@@ -29,11 +29,11 @@ const Navbar = ({ toggleBackground }) => {
   const isMobile = useMediaQuery(muiTheme.breakpoints.down('sm'));
 
   const navItems = [
-    { label: 'Home', link: '#home' },
-    { label: 'About', link: '#about' },
-    { label: 'Projects', link: '#projects' },
-    { label: 'Skills', link: '#skills' },
-    { label: 'Contact', link: '#contact' },
+    { label: 'Home', link: '/' },
+    { label: 'About', link: '/about' },
+    { label: 'Projects', link: '/projects' },
+    { label: 'Skills', link: '/skills' },
+    { label: 'Contact', link: '/contact' },
   ];
 
   const handleDrawerToggle = () => setDrawerOpen(!drawerOpen);
