@@ -4,24 +4,29 @@ import {
   Toolbar,
   Typography,
   IconButton,
-  Menu,
-  MenuItem,
   Button,
   Box,
   Avatar,
+  Drawer,
+  List,
+  ListItem,
+  ListItemText,
+  useMediaQuery,
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
-import { useTheme } from '../contexts/ThemeProvider'; 
-import photo from '../assets/photo.jpeg'; 
+import { useTheme as useMuiTheme } from '@mui/material/styles';
+import { useTheme } from '../contexts/ThemeProvider';
+import photo from '../assets/photo.jpeg';
+import photo2 from '../assets/photo2.jpeg';
 
-const Navbar = () => {
-  const [anchorEl, setAnchorEl] = useState(null);
-  const { mode, toggleTheme } = useTheme(); 
-
-  const handleMenuOpen = (event) => setAnchorEl(event.currentTarget);
-  const handleMenuClose = () => setAnchorEl(null);
+const Navbar = ({ toggleBackground }) => {
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  const [avatarImage, setAvatarImage] = useState(photo);
+  const { mode, toggleTheme } = useTheme();
+  const muiTheme = useMuiTheme();
+  const isMobile = useMediaQuery(muiTheme.breakpoints.down('sm'));
 
   const navItems = [
     { label: 'Home', link: '#home' },
@@ -31,30 +36,48 @@ const Navbar = () => {
     { label: 'Contact', link: '#contact' },
   ];
 
+  const handleDrawerToggle = () => setDrawerOpen(!drawerOpen);
+
   return (
     <AppBar
       position="sticky"
       sx={{
-        background: mode === 'dark'
-          ? 'linear-gradient(45deg, #333, #555)'
-          : 'linear-gradient(45deg, #0077c2, #00b0ff)',
+        background:
+          mode === 'dark'
+            ? 'linear-gradient(45deg, #333, #555)'
+            : 'linear-gradient(45deg, #0077c2, #00b0ff)',
         boxShadow: '0 4px 20px rgba(0, 0, 0, 0.3)',
       }}
     >
-      <Toolbar>
-        <Box sx={{ display: 'flex', alignItems: 'center', flexGrow: 1 }}>
+      <Toolbar sx={{ justifyContent: 'space-between' }}>
+        {/* Logo & Title */}
+        <Box sx={{ display: 'flex', alignItems: 'center' }}>
           <Avatar
-            src={photo}
+            src={avatarImage}
             alt="ShadanKhan"
+            onMouseEnter={() => setAvatarImage(photo2)}
+            onMouseLeave={() => setAvatarImage(photo)}
             sx={{
-              width: 60,
-              height: 60,
-              marginRight: '20px',
-              border: mode === 'dark' ? '2px solid #90caf9' : '2px solid #004d99',
+              width: { xs: 40, sm: 60 },
+              height: { xs: 40, sm: 60 },
+              marginRight: { xs: '8px', sm: '20px' },
+              border:
+                mode === 'dark'
+                  ? '2px solid #90caf9'
+                  : '2px solid #004d99',
+              transition:
+                'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
+              '&:hover': {
+                transform: 'scale(1.2)',
+                boxShadow:
+                  mode === 'dark'
+                    ? '0px 0px 10px 2px rgba(144, 202, 249, 0.8)'
+                    : '0px 0px 10px 2px rgba(0, 77, 153, 0.8)',
+              },
             }}
           />
           <Typography
-            variant="h5"
+            variant={isMobile ? 'h6' : 'h4'}
             sx={{
               fontWeight: 'bold',
               fontFamily: 'Arial, sans-serif',
@@ -70,87 +93,115 @@ const Navbar = () => {
           </Typography>
         </Box>
 
-     
-        <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center' }}>
-          {navItems.map((item) => (
-            <Button
-              key={item.label}
-              href={item.link}
-              color="inherit"
-              sx={{
-                color: '#ffffff',
-                fontSize: '1rem',
-                textTransform: 'capitalize',
-                margin: '0 15px',
-                padding: '8px 16px',
-                '&:hover': {
-                  backgroundColor: mode === 'dark' ? '#555' : '#bbdefb',
-                  color: mode === 'dark' ? '#90caf9' : '#0077c2',
-                  borderRadius: '8px',
-                },
-              }}
-            >
-              {item.label}
-            </Button>
-          ))}
-        </Box>
+        {/* Navigation & Buttons */}
+        <Box sx={{ display: 'flex', alignItems: 'center' }}>
+          {isMobile ? (
+            // Mobile: only hamburger icon shows navigation items inside a Drawer
+            <>
+              <IconButton
+                edge="start"
+                color="inherit"
+                aria-label="menu"
+                onClick={handleDrawerToggle}
+              >
+                <MenuIcon sx={{ color: '#ffffff' }} />
+              </IconButton>
+              <Drawer
+                anchor="right"
+                open={drawerOpen}
+                onClose={handleDrawerToggle}
+                sx={{ '& .MuiDrawer-paper': { width: '70%' } }}
+              >
+                <List>
+                  {navItems.map((item) => (
+                    <ListItem
+                      button
+                      key={item.label}
+                      component="a"
+                      href={item.link}
+                      onClick={handleDrawerToggle}
+                      sx={{
+                        '&:hover': {
+                          backgroundColor:
+                            mode === 'dark' ? '#444' : '#bbdefb',
+                          color: mode === 'dark' ? '#90caf9' : '#0077c2',
+                        },
+                      }}
+                    >
+                      <ListItemText primary={item.label} />
+                    </ListItem>
+                  ))}
+                </List>
+              </Drawer>
+            </>
+          ) : (
+            // Desktop: show navigation buttons directly
+            <Box sx={{ display: 'flex', alignItems: 'center' }}>
+              {navItems.map((item) => (
+                <Button
+                  key={item.label}
+                  href={item.link}
+                  color="inherit"
+                  sx={{
+                    color: '#ffffff',
+                    fontSize: '1rem',
+                    textTransform: 'capitalize',
+                    margin: '0 10px',
+                    padding: '8px 16px',
+                    '&:hover': {
+                      backgroundColor:
+                        mode === 'dark' ? '#555' : '#bbdefb',
+                      color: mode === 'dark' ? '#90caf9' : '#0077c2',
+                      borderRadius: '8px',
+                    },
+                  }}
+                >
+                  {item.label}
+                </Button>
+              ))}
+            </Box>
+          )}
 
-   
-        <IconButton
-          edge="end"
-          color="inherit"
-          onClick={toggleTheme}
-          sx={{
-            marginLeft: '30px',
-            '&:hover': {
+          {/* Toggle Background Button */}
+          <Button
+            variant="outlined"
+            onClick={toggleBackground}
+            sx={{
+              marginLeft: { xs: '5px', sm: '20px' },
+              borderColor: mode === 'dark' ? '#90caf9' : '#004d99',
               color: mode === 'dark' ? '#90caf9' : '#004d99',
-            },
-          }}
-        >
-          {mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
-        </IconButton>
-
-        {/* Mobile Navigation */}
-        <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
-          <IconButton
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            onClick={handleMenuOpen}
-          >
-            <MenuIcon sx={{ color: '#ffffff' }} />
-          </IconButton>
-          <Menu
-            anchorEl={anchorEl}
-            open={Boolean(anchorEl)}
-            onClose={handleMenuClose}
-            keepMounted
-            PaperProps={{
-              style: {
-                background: mode === 'dark'
-                  ? 'linear-gradient(45deg, #333, #555)'
-                  : 'linear-gradient(45deg, #0077c2, #00b0ff)',
-                color: '#ffffff',
+              width: { xs: '40px', sm: '50px' },
+              height: { xs: '40px', sm: '50px' },
+              minWidth: { xs: '40px', sm: '50px' },
+              padding: 0,
+              fontSize: { xs: '1.2rem', sm: '1.5rem' },
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              borderRadius: '50%',
+              '&:hover': {
+                borderColor: mode === 'dark' ? '#90caf9' : '#0077c2',
+                backgroundColor: mode === 'dark' ? '#555' : '#e3f2fd',
               },
             }}
           >
-            {navItems.map((item) => (
-              <MenuItem
-                key={item.label}
-                onClick={handleMenuClose}
-                component="a"
-                href={item.link}
-                sx={{
-                  '&:hover': {
-                    backgroundColor: mode === 'dark' ? '#444' : '#bbdefb',
-                    color: mode === 'dark' ? '#90caf9' : '#0077c2',
-                  },
-                }}
-              >
-                {item.label}
-              </MenuItem>
-            ))}
-          </Menu>
+            🌌
+          </Button>
+
+          {/* Theme Toggle Button */}
+          <IconButton
+            edge="end"
+            color="inherit"
+            onClick={toggleTheme}
+            sx={{
+              marginLeft: { xs: '5px', sm: '20px' },
+              '&:hover': {
+                color: mode === 'dark' ? '#90caf9' : '#004d99',
+              },
+            }}
+          >
+            {mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
+          </IconButton>
         </Box>
       </Toolbar>
     </AppBar>
