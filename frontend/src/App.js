@@ -7,7 +7,6 @@ import DynamicScatterBackground from './components/DynamicScatterBackground';
 import Home from './components/Home';
 import About from './components/About';
 import Projects from './components/Projects';
-import Skills from './components/Skills';
 import Contact from './components/Contact';
 import { useTheme } from './contexts/ThemeProvider';
 
@@ -74,7 +73,6 @@ const App = () => {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/projects" element={<Projects />} />
-            <Route path="/skills" element={<Skills />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </div>
